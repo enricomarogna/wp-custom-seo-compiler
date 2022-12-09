@@ -1,8 +1,8 @@
 === Alt Compiler ===
 Contributors: Enrico Marogna
-Tags: alt, alt text, seo, compiler
+Tags: wordpress, alt, alt text, seo, compiler
 Requires at least: 5.5
-Tested up to: 5.8
+Tested up to: 6.1.1
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
