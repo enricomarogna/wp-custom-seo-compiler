@@ -19,7 +19,7 @@ Simply installing and activating it
 Simply deactivate and delete the plugin. 
 
 ## Changelog
-### 1.0
+### v1.0.0
 - Plugin released. 
 
 ## Details
