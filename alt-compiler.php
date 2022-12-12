@@ -42,21 +42,21 @@ function set_attachment_alt_text(){
         'posts_per_page'    => -1,
     );
     $posts_array = get_posts( $args );
-    foreach($posts_array as $post_array){
+    foreach($posts_array as $post){
         // Eseguo solo per i post che hanno una immagine in evidenza
-        if ( has_post_thumbnail( $post_array->ID ) ) {
+        if ( has_post_thumbnail( $post->ID ) ) {
             // Assegno alla variabile l id dell immagine
-            $thumbnail_id = get_post_thumbnail_id( $post_array->ID );
+            $thumbnail_id = get_post_thumbnail_id( $post->ID );
             // Assegno alla variabile il testo ALT dellimmagine
             $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
             // Se l immagine articolo non ha il campo ALT popolato allora procedo, altrimenti esco
             if ( ! $alt_text ) {
                 // Assegno alla variabile il titolo del post
-                $title = $post_array->post_title;
+                $title = $post->post_title;
                 // Assegno all attributo ALT dell immagine il titolo del post
                 update_post_meta($thumbnail_id, '_wp_attachment_image_alt', $title);
                 // Aggiorno il post
-                wp_update_post($post_array->ID);
+                wp_update_post($post->ID);
             }
         }
     }
@@ -84,45 +84,43 @@ function get_custom_part($custom_id, $custom_part){
  * 160 caratteri dell excerpt del post, se presente, oppure i primi 160 caratteri del content
  * ===========================================================================
  */
-add_action('wp_head','auto_post_meta_desc');
-function auto_post_meta_desc(){
-    $args = array(
-        'posts_per_page'    => -1,
-    );
-    $posts_array = get_posts( $args );
-
-    // Verifico se il plugin YOAST è attivo
-    $yoast_active	= false;
-    if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
-    	//plugin is activated
-    	$yoast_active = true;
-    }
-
-    foreach($posts_array as $post_array){
-
-		// Recupero i dati del post
-   		// $cust_title				= get_the_title($post_array->ID);
-		$cust_excerpt			= get_custom_part($post_array->ID, 'excerpt');
-		$cust_content			= get_custom_part($post_array->ID, 'content');
-
-		// Se YOAST è attivo, recupero la meta descrizione
-		$meta_description		= '';
+add_action('wp_head','custom_meta_description');
+function custom_meta_description(){
+    if(is_single()){
+        console_log('Is single');
+        // Verifico se il plugin YOAST è attivo
+        $yoast_active	= false;
+        if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
+            // Il plugin è attivo, allora assegno true alla variabile
+            $yoast_active = true;
+        }
+        
+        // Recupero il riassunto del post
+		$cust_excerpt   = get_custom_part($post->ID, 'excerpt');
+        // Recupero il contenuto del post
+		$cust_content   = get_custom_part($post->ID, 'content');
+        
+        // Se YOAST è attivo, recupero la meta descrizione di YOAST
+		$yoast_meta_description = '';
 		if ( $yoast_active ){	
 	        // Recupero la descrizione meta di YOAST e la assegno alla variabile $meta_description
-    		$meta_description	.= YoastSEO()->meta->for_post($post_array->ID)->description;
+    		$yoast_meta_description	.= YoastSEO()->meta->for_post($post->ID)->description;
 		}
 
-		// Se la variabile $meta_description è vuota e il custom excerpt esiste, assegna quest ultimo alla variabile $meta_description
-		if( empty($meta_description) && !empty($cust_excerpt) ){
-   			$meta_description .= $cust_excerpt;
+        // Se la descrizione meta di YOAST è vuota allora ne genero una con il contenuto del riassunto
+		if( empty($yoast_meta_description) && !empty($cust_excerpt) ){
+            // Inserisco nell header i meta
+            $text_test = '<meta class="custom-seo-meta-tag" name="description" content="' . $cust_excerpt  . '" />';
+            echo $text_test;
    		}
-   		// Se la variabile $meta_description è vuota assegno alla variabile $meta_description il custom content
-   		elseif( empty($meta_description )){
-   			$meta_description .= $cust_content;
+   		// Se la descrizione di yoast e del riassunto sono vuote, ne genero una con il contenuto del post
+   		elseif( empty($yoast_meta_description ) && !empty($cust_content) ){
+            // Inserisco nell header i meta
+            $text_test = '<meta class="custom-seo-meta-tag" name="description" content="' . $cust_content  . '" />';
+            echo $text_test;
    		}
-   		
-		// Inserisco nell header i meta
-		$text_test = '<meta class="custom-seo-meta-tag" name="description" content="' . $meta_description  . '" />';
-   		echo $text_test;
+        else{
+            //do_nothing
+        }	
     }
 }
