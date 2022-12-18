@@ -1,7 +1,7 @@
 <img src="./assets/logo.svg" alt="WP Custom SEO Compiler Logo" width="200px"/>
 
 # Wordpress Custom SEO Compiler
-Un plugin Wordpress per compilare automaticamente le meta descrizioni degli articoli e i tag meta delle immagini in evidenza
+Un plugin Wordpress per compilare automaticamente le meta descrizioni degli articoli e i tag meta delle immagini in evidenza.
  
 ## Descrizione
 - Ogni volta che viene salvato un post o una pagina, il plugin verifica che tutte le immagini in evidenza abbiano il tag ALT popolato, qualora non lo fosse lo compila copiando il titolo del post o della pagina.
@@ -15,11 +15,13 @@ Un plugin Wordpress per compilare automaticamente le meta descrizioni degli arti
 ## FAQ
 
 ### Come uso il plugin?
-Semplicemente installalo e attivalo.
+Semplicemente installa e attiva il plugin, non è necessaria alcuna configurazione.
 
 ### Come disinstallo il plugin?
 Semplicemente disattiva e disinstalla il plugin.
 
 ## Changelog
+### v1.0.1
+- Integrata funzione per la compilazione automatica delle descrizioni meta
 ### v1.0.0
 - Plugin released. 
