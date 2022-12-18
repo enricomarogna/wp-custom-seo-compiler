@@ -21,5 +21,7 @@ Semplicemente installalo e attivalo.
 Semplicemente disattiva e disinstalla il plugin.
 
 ## Changelog
+### v1.0.1
+- Integrata funzione per la compilazione automatica delle descrizioni meta
 ### v1.0.0
 - Plugin released. 
