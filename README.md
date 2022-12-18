@@ -15,7 +15,7 @@ Un plugin Wordpress per compilare automaticamente le meta descrizioni degli arti
 ## FAQ
 
 ### Come uso il plugin?
-Semplicemente installalo e attivalo.
+Semplicemente installa e attiva il plugin, non è necessaria alcuna configurazione.
 
 ### Come disinstallo il plugin?
 Semplicemente disattiva e disinstalla il plugin.
