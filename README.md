@@ -1,32 +1,25 @@
-<img src="./assets/logo.svg" alt="Alt Compiler Logo" width="200px"/>
+<img src="./assets/logo.svg" alt="WP Custom SEO Compiler Logo" width="200px"/>
 
-# Wordpress Alt Compiler 
-A WordPress plugin to fill the empty alt field of the featured image. 
+# Wordpress Custom SEO Compiler
+Un plugin Wordpress per compilare automaticamente le meta descrizioni degli articoli e i tag meta delle immagini in evidenza
  
-## Description
-This plugin takes care of filling in the ALT fields of featured images, but only if they are left blank. The ALT field is populated with the title of the post. 
- 
-## Installation
-1. Upload the plugin folder to your `/wp-content/plugins/` folder.
-1. Go to the **Plugins** page and activate the plugin.
- 
-## Frequently Asked Questions
+## Descrizione
+- Ogni volta che viene salvato un post o una pagina, il plugin verifica che tutte le immagini in evidenza abbiano il tag ALT popolato, qualora non lo fosse lo compila copiando il titolo del post o della pagina.
+- Il plugin verifica che per la pagina visualizzata sia presente la descrizione meta di YOAST, se il campo è vuoto lo popola con i primo 160 caretteri dell'excerpt, qualora neanche questo fosse presente, con i primi 160 caratteri del post.
 
-### How do I use this plugin?
-Simply installing and activating it
+## Installazione
+1. Scarica il file `.zip` [dell'ultima versione del plugin](https://github.com/enricomarogna/wp-custom-seo-compiler/releases).
+2. Caricalo tramite il form dedicato ai plugin di Wordpress.
+3. Attiva il plugin.
+ 
+## FAQ
 
-### How to uninstall the plugin?
-Simply deactivate and delete the plugin. 
+### Come uso il plugin?
+Semplicemente installalo e attivalo.
+
+### Come disinstallo il plugin?
+Semplicemente disattiva e disinstalla il plugin.
 
 ## Changelog
 ### v1.0.0
 - Plugin released. 
-
-## Details
-- Contributors: Enrico Marogna
-- Tags: wordpress, alt, alt text, seo, compiler
-- Requires at least: 5.5
-- Tested up to: 6.1.1
-- Stable tag: 1.0
-- License: GPLv2 or later
-- License URI: http://www.gnu.org/licenses/gpl-2.0.html

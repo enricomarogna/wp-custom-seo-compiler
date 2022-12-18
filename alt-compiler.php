@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name:  Alt Compiler
-Plugin URI:   https://www.enricomarogna.com 
-Description:  This plugin takes care of filling in the ALT fields of featured images, but only if they are left blank. The ALT field is populated with the title of the post. 
+Plugin Name:  WP SEO Compiler
+Plugin URI:   https://github.com/enricomarogna/wp-custom-seo-compiler
+Description:  Un plugin Wordpress per compilare automaticamente le meta descrizioni degli articoli e i tag meta delle immagini in evidenza.
 Version:      1.0
 Author:       Enrico Marogna 
-Author URI:   https://www.enricomarogna.com
+Author URI:   https://github.com/enricomarogna/
 License:      GPL2
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain:  alt-compiler
-Domain Path:  /plugins
+Text Domain:  wp-seo-compiler
+Domain Path:  /languages
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -87,7 +87,6 @@ function get_custom_part($custom_id, $custom_part){
 add_action('wp_head','custom_meta_description');
 function custom_meta_description(){
     if(is_single()){
-        console_log('Is single');
         // Verifico se il plugin YOAST è attivo
         $yoast_active	= false;
         if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
