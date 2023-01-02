@@ -3,7 +3,7 @@
 Plugin Name:  WP SEO Compiler
 Plugin URI:   https://github.com/enricomarogna/wp-custom-seo-compiler
 Description:  Un plugin Wordpress per compilare automaticamente le meta descrizioni degli articoli e i tag meta delle immagini in evidenza.
-Version:      1.0
+Version:      1.0.1
 Author:       Enrico Marogna 
 Author URI:   https://github.com/enricomarogna/
 License:      GPL2
